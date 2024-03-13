@@ -27,6 +27,43 @@ export const FormContainer = styled.div`
   justify-content: center;
   width: 100%;
 `
+// base que será a mesma para os 2 inputs
+// inherit herda a caracteristica do pai
+
+const BaseInput = styled.input`
+  background: transparent;
+  height: 2.5rem;
+  border: 0;
+  border-bottom: 2px solid ${(props) => props.theme['gray-500']};
+  font-weight: bold;
+  font-size: 1.125rem;
+  padding: 0 0.5rem;
+  color: ${(props) => props.theme['gray-100']};
+
+  &:focus {
+    box-shadow: none;
+    border-color: ${(props) => props.theme['green-500']};
+  }
+
+  &::placeholder {
+    color: ${(props) => props.theme['gray-500']};
+  }
+`
+
+// flex 1 ocupa o máximo espaço que der
+export const TaskInput = styled(BaseInput)`
+  flex: 1
+
+  &::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
+`;
+
+//webkit remove a seta do input
+
+export const MinutesAmountInput = styled(BaseInput)`
+  width: 4rem;
+`;
 
 export const CountdownContainer = styled.div`
   color: ${(props) => props.theme['gray-100']};
